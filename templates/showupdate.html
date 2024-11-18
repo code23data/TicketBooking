@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Edit Venue</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-10 gy-2">
+                    <h1>{{admin_user}}'s Dashboard</h1>
+                </div>
+                <div class="col gy-2">
+                    <a href="/" class="btn btn-dark">Logout</a>
+                </div>
+            </div>
+            <h2>Edit a {{this_show}}</h2>
+            <div>
+                <form
+                    action="/{{admin_id}}/dashboard/edit/show/{{show_id}}"
+                    method="POST"
+                >
+                    <div class="col-md-4">
+                        <label for="show">Show Name</label><br />
+                        <input
+                            type="text"
+                            name="show"
+                            id="show"
+                            class="form-control"
+                            required
+                        /><br />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="rating">Rating</label><br />
+                        <input
+                            type="text"
+                            name="rating"
+                            id="rating"
+                            class="form-control"
+                        /><br />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="timings">Timings</label><br />
+                        <input
+                            type="time"
+                            name="timings"
+                            id="timings"
+                            class="form-control"
+                            required
+                        /><br />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tags">Tags</label><br />
+                        <input
+                            type="text"
+                            name="tags"
+                            id="tags"
+                            class="form-control"
+                        /><br />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="price">Price</label><br />
+                        <input
+                            type="number"
+                            name="price"
+                            id="price"
+                            class="form-control"
+                            required
+                        /><br />
+                    </div>
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </form>
+            </div>
+            <a href="/{{admin_id}}/dashboard/home" class="btn btn-secondary"
+                >Cancel</a
+            >
+        </div>
+    </body>
+</html>

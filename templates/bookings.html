@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{user.username}}'s Bookings</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1>
+                        <a href="/{{user.user_id}}/dashboard"
+                            >{{user.username}}'s Dashboard profile</a
+                        >
+                    </h1>
+                </div>
+                <div class="col">
+                    <h1><a href="/{{user.user_id}}/bookings">bookings</a></h1>
+                </div>
+                <div class="col gy-2">
+                    <a href="/" class="btn btn-dark">Logout</a>
+                </div>
+            </div>
+            <h2>Your Bookings</h2>
+            {% for booking in bookings %}
+            <div class="row border">
+                <div class="col">{{booking.venues.v_name}}</div>
+                <div class="col">{{booking.shows.s_name}}</div>
+                <div class="col">{{booking.shows.s_time}}</div>
+                <div class="col">
+                    Tickets: {{booking['tickets']}}<br />
+                    Price: {{booking.shows.s_price}} Total Cost:
+                    {{booking['total_cost']}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
